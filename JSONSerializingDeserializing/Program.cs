@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json;
-using System.Security.Cryptography.X509Certificates;
 
 namespace JSONSerializingDeserializing
 {
@@ -19,10 +14,10 @@ namespace JSONSerializingDeserializing
 
             string jsonString = JsonSerializer.Serialize(settings);
 
-            Console.WriteLine(jsonString);
-
             System.IO.File.WriteAllText("settings.json", jsonString);
-        }
 
+            Settings newSettings = JsonSerializer.Deserialize<Settings>(jsonString);
+            Console.WriteLine($"Lives: {newSettings.lives}, Score: {newSettings.score}");
+        }
     }
 }
