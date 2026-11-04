@@ -18,6 +18,7 @@ namespace JSONSerializingDeserializing
 
             Settings newSettings = JsonSerializer.Deserialize<Settings>(jsonString);
             Console.WriteLine($"Lives: {newSettings.lives}, Score: {newSettings.score}");
+            Console.ReadKey();
         }
     }
 }
